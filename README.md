@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+## React Interactive Chart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A customizable and interactive chart component for React, using Chart.js and Axios for data fetching.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+1. **Install Dependencies:**
+   Make sure you have the required dependencies installed:
 
-### `npm start`
+   ```bash
+   npm install react react-dom react-chartjs-2 axios chart.js
+2.Import the Component:
+Import the InteractiveChart component into your React file:
+import InteractiveChart from './path-to/InteractiveChart';
+3.Use the Component:
+Include the <InteractiveChart /> component in your JSX:
+function App() {
+  return (
+    <div>
+      <h1>Your App Title</h1>
+      <InteractiveChart />
+    </div>
+  );
+}
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+export default App;
+Customization
+The InteractiveChart component provides the following customization options:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Change Chart Type:
+Click on the "Bar Chart" or "Line Chart" buttons to switch between bar and line chart types.
 
-### `npm test`
+Color Scheme:
+Adjust the color scheme by entering comma-separated color values in the "Color Scheme" input field.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Axis Titles:
+Modify the titles of the X and Y axes by entering new values in the "X Axis Title" and "Y Axis Title" input fields.
 
-### `npm run build`
+Legend Position:
+Select the desired legend position from the dropdown list.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Animation Duration:
+Adjust the animation duration by modifying the duration property in the options object.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Data Source
+The chart fetches data from JSONPlaceholder using Axios. You can replace this API endpoint with your own data source.
+Notes
+This component is built using React, Chart.js, and Axios.
+Feel free to customize and integrate it into your React application.

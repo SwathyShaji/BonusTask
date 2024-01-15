@@ -1,11 +1,21 @@
-import React, { useState, useEffect, useRef } from "react";
+import { Chart as ChartJs } from "chart.js/auto";
+import React, { useState, useEffect } from "react";
 import { Bar, Line } from "react-chartjs-2";
 import axios from "axios";
-import { Chart as ChartJs } from "chart.js/auto";
 import "../Components/style.css";
 
+/**
+ * InteractiveChart Component
+ *
+ * A React component that displays an interactive chart using Chart.js and react-chartjs-2.
+ * Users can switch between Bar and Line chart types and customize the chart appearance.
+ *
+ */
 const InteractiveChart = () => {
+  // State for chart type (bar or line)
   const [chartType, setChartType] = useState("bar");
+
+  // State for user data (labels and datasets)
   const [userData, setUserData] = useState({
     labels: [],
     datasets: [
@@ -41,6 +51,7 @@ const InteractiveChart = () => {
 
   const [legendPosition, setLegendPosition] = useState("top");
 
+  // Fetch data from JSONPlaceholder API
   useEffect(() => {
     const limit = 25; // Change this to the desired limit
     axios
@@ -65,14 +76,17 @@ const InteractiveChart = () => {
       });
   }, [colorScheme]);
 
+  // Handle chart type change
   const handleChartTypeChange = (type) => {
     setChartType(type);
   };
 
+  // Handle color scheme change
   const handleColorSchemeChange = (newColorScheme) => {
     setColorScheme(newColorScheme);
   };
 
+  // Handle axis titles change
   const handleAxisTitlesChange = (axis, newTitle) => {
     setAxisTitles((prevTitles) => ({
       ...prevTitles,
@@ -80,10 +94,12 @@ const InteractiveChart = () => {
     }));
   };
 
+  // Handle legend position change
   const handleLegendPositionChange = (position) => {
     setLegendPosition(position);
   };
 
+  // Chart options for customization
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -113,23 +129,30 @@ const InteractiveChart = () => {
       },
     },
     animation: {
-      duration: 1000, // Set animation duration in milliseconds
+      duration: 1000,
     },
   };
 
+  // Render the component
   return (
     <div>
+      {/* Chart type buttons */}
       <div>
-        <button className="button" onClick={() => handleChartTypeChange("bar")}>
+        <button
+          className={`button ${chartType === "bar" ? "active" : ""}`}
+          onClick={() => handleChartTypeChange("bar")}
+        >
           Bar Chart
         </button>
         <button
-          className="button"
+          className={`button ${chartType === "line" ? "active" : ""}`}
           onClick={() => handleChartTypeChange("line")}
         >
           Line Chart
         </button>
       </div>
+
+      {/* Chart customization options */}
       <div style={{ width: "100%", height: "400px" }}>
         <div>
           <label>
@@ -177,6 +200,8 @@ const InteractiveChart = () => {
             </select>
           </label>
         </div>
+
+        {/* Render the selected chart type */}
         {chartType === "bar" ? (
           <Bar data={userData} options={options} />
         ) : (
